@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+<head>
+	<title>Building HTML5 Apps</title>
+	
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	
+	<link rel="stylesheet" type="text/css" href="article.css" />
+	
+</head>
+</html>
+<body><article>
+	
+	<h1>Building HTML5 Apps</h1>
+	
+	<p>
+		<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAANdUlEQVR4Xu1dXWgc1xW+M6u1iBvZDs5DSy0h0cgOebJSkkJDmg0lUFwLO6UU+lQ5gT60CbVpSUn7EJnSv9ASQ9w+FJIqfSsUIiHVpA9p1oUUmkCtvpRYcvBiufQvqZXoz9rdmek5G48Zj+fO/b9zZzUHBml379y/891zz3z3zrkesSsRpTgv43tW2jfgnoZC9U/DvdM38sC8suQUfHkm4wcsl3ZPnC/exmqDQvX13JrV8Xpyzs5FpENYaW0AYBWaMQYX/k3KBfhwmNJRFQByEMRSavJWVlobAMD6zMB1IlGxk/D/CzltrADQZwDA5jwKVxOufXBdvvGX1swKAH0IgEVo0wRcr8J1nDFHVgCQAAB2Wlqeo+QT+y1ohtPzMH7GUZqWFnyBV1JegQ8zcDXgojl0yfSYdoqhfPy5AoAEADj69WaSPMeV5hcklZIuixcAvHWsAFABoPd4icJyZHlBZSydK4+BIg2sLIBIbzHSVgCg+wAt6LvRnP5rwm84faSlmgL6ZApABZ+HK8sZRXbwA8pvFQAkACDzFJBVjE4nEAGAz//43J+0BDE7iIRQFjh4AJDV3mR7ZuADWiDj4soUILMWYAsAaOaTj4mPw+dZuKYVAMBSbEw8sdIp/14BgO4DxBYAOxk5BxzxqHgEAEoFAAn4iTwWiaSNq2JiCsC8kVzCvHFkxgtDFQB2EACymloBoAKAtBPI6rq+9QFw1NBGU/p7kbTxvVPwz2hGAU34Dq8swfR4X1pa8MVMjqYa8BteaUmWRWtDTra9n7BcLN+42HYCjTeoKkCsByoAiPVX36WuANB3KhVrUAUAsf7qu9QVAPpOpWINqgAg1l99l7oCQN+pVKxB2gCwcvTgtOdlEiNiNapSM3sgisjp4YUlWY7hlvy1AeDK5KeO+6SGu2YrMdwDIQkeH5l/FxemlEUbAFaO3tPwPJ9nd61ypXd6BlEUPjq8cKmpox8qAOjoRct5OAkA7IOrkwdpS7iWu6i/izswv6Rt4GrLqAKAPdBVALDX106W5CwAVo6Ov+F5XsPJXqNUavBO37nqdrZCEgbZ1YqiqDm8sIz7BbSI1imgjAAY+nhNS0fqzGTjv0FZAXDwVSCDWG/P6uwr5bxcBMDavyjDH1oLJNAskEDxxlTl9mu2AOVjA0sIAG0sIKKnAoBjUwDO/TgF0EQnDawdAFeOjE/5Ne/XynbJYgauWYCgHZHN/4XUHgiD6MTIueUZXV2k2QKUjw4uGwB0soDaLUAZ1wNcA0B7MyLbH9ItgNMAuNwY3Vcf2nVNl3mykY9zAFgHAKzTAdBZa9811mylw9ZJd5XWKQBrUbb1gLIBQCcLqH0KqAAgPRBv3ogOIDqCNHEfAEfHLxDPo0XRVO8hzTm4ZgHyAKCbBjZiAVTo4IFjT5LasSc0q5ieXb1eJ3v37rVWHha0Pf+L3kWTjfdhHaCTbQEqAGhWVREAuP7bn5D267+htiSfBta7EGTIAsjTwbXHvkIGvvotzWp2ywJs/nyKdC++JQkAfZtB4wpofwpQ2R3s3ztB6s+c3bEAsE0DG7EAV794z0ni+3nRtKkK3gkA2PjBl0iw8k5mH7BoYBKGpw78/lLW+QXSg8aABZCng727P0F2Pf876caI3liED/Dh1++jVpMFAN0soBELoEoHD778pqgepdO7BoDOVkSuf2CPBjYCgMtfGB2t13dhbD0p6WcAhO//g6w/+xi1X9osGrjTHht7rdWS6ljKTdqnACxHhQ7eNT1DvJFxnW2k5mXbAgRLb5ONn31NGgC6WUAjFkAVAPXvniX+ITybwby4BoCt1ZB0r9ujgc0BQIEO7mcAIAGERBBNctcBomjxwMKy9pFhZAqwSQcHcy9Lmwq/5pM9+++Qvl/0RpwC8kgg2+sAxiyATQB0nn+KhO/gKW5y4tJikG0a2BgArkyOv+ATD2PrCosoHbxzAKCfBjYGAJt0cOfFZ0l44U/CQItvcMUCwG5fsv5ve7uB4/Yb8gHkF4RE6WD0AbpzL5UeAGwWsFQWQIEOBg4AuQBe2TkA0BcUItm3hiyAPACwciJsYPDmOdJ96Ye8eLktnStTQBE0sDEf4PKR8cP1miftmosAILx4gXR++lTpAcCkgYNoYuzcMp5gqlWMWACsoRIdDCuCuDLIIzsFACZoYGMWQBUAImxg9N4/SfuZL/NgJTONK1MArgLiNECTMgIgfdoWt5JEAICZbj/xEHfe6YSuAICxHbwFABiTbmTOjcamACU2EPYFIiHEK/0OABO7geO+dRMAlraH21wNZG0HX/9PQCLKXpBSAkCFDrb1foBNAGz+8mnSXXydatTy1gFCEp0ZmV8+xWsRRdIZtAD22ECRBifTWgWAY9vBLUwBFQCSYMt7H6AoGtjoY6BK8GjcEiZCB5fBAri2G9iCBbBHB5cdAN3tiGxds7sbuAIA9IAtHyDaXCNrJz9DxSmLBjbxPoBxAKiygYNn/0DI7jtlBzfXfbYA4OJuYOcBIMoGcmk8lcgVABRFAxt1AjHzlcnxax7x8ORtYeknAODzP/IANMndDEqi1eH55buEO5DzBmM8QA8ACsGjB578Pqk9dISzGXLJbFkAFgtYxG5gK1OACgBwa5h/6H45zXLeJbst3N//SVL/LH9IZBYAbAaHTneNUQtwdXIcooZ6U5z6KCSZzGrgwKEHye5vz3DXd2vme6TzZ/oZT3k0MISHnjkwv3yCuzDBhEYBoLI7WLAd0sllAICj/46pH3GX6VpUkGTFKwBIBIsenPwmwYtX8gAQdiOy8V4eCWRmN7AVH6AMwaNlLIAoAJAEQjIoS1jrADrPCMwq37AFUKODeUeYSjoZAOz+xotk4PDnuYt1dR0AG+A0AGzsDpYBwMe+8wqpHXxACwCKpIGNA0A1eLQIHSy7O9g0AFymgY0DAAtQ2R4uwgZGV5ZJe1r8iVMGAHt+9Xfu0c8CwPZaSNob9ncDW3ECbQIAy5LZHGoaACo0MLbJ1HZwawBQYQPrT/+Y+BOf4x5tNgDg7R4iQ2f+wl8nRmzgImlgK1OACgBEN4fiCyL4ooiIiFoAURbQZRrYEgDkzxIUBYBMsAjTAFALDq33jEDrPAAWqEIH42ogrgryig0A9BMNbMsCTMNpos/xKjGZTjRYBL4mjq+Li4ioBRBlAXNpYMtnBBZiAVToYFEAkM11El78ay9oFPIC+GjIEh4A1IbvBeLnQTJw6AEhBhDLxsigGCE0S5g0sOYzAgsBgFLsYNgT2CODJAUdwh4QABABxhECgKQlCwC43l9DZaPSgfJFz19WXKaBLU0BausBInQwS0loERAQGFQqDi2HAEAFxyMc/+KI1yV5ALB9RmAhFsDl4NHe8t/Ivv17hHh9EWDguQB4PgBNWOsAus8ILAQAWKgtOlhEOZjW9J5AFg3MAoBpFtDKFFABgB4d3PYZgcVZAJXg0YJ0sIgVMG0BWCxg0TSwNQtgkw4uEwBsnxFYmAXYqQBQo4H1nxFYIADkYwVgpXFFsPeewMTD3OHjeCyBiSkAPf9g6S0ICw+h4XMigmD98qODm90MGveP0S1hcSEq6wFpRWL8QDxRxL//4Y9eHFF4gVQHAHCzJyq6C0oPQOk01i/djiLOCCzMAqicJcgayfEbRD3rIHjWkCwA4oMfUPG0MwBZ9WbRwCbOCCwMAEp0MKsnk7+DNajBdOH1XiubYE4XvADAUY2ju4MKh5FO2+ItUlUWAEzGBEjW09IUoEYHi3TsLY0Di/DRdAE+RMZBVHkA6Jn1G/M4r1kXqWdRwaFvm1JFKi2bVjV4tGy56fvSzmQSADedt8U/5p7ro6suLBawY+CMwMKmACxYhQ7W1em3WAdwJgfu+zQZuntQyHnTVRcWAGzQwNgWK1OAiwCIFcmzH0CX0pP5FHFGYNEWQDp4tAkFFA2AIs4ILBQAKmzgTgOAydjAhTiBWOhOBwCeCoaPfng0LP5FIogmfQkAleDRZbUA+O5/9zohHQgEGXbor3+l22cyOHSBFkBtPcAUCHQ6gTiqe6McFI5/aeHfWW0Ba3F6eGFpmpVOx+/WngJ0rgfoaLguJzBWdrdNhEZ5Xhv6FADFsIEssIhagJ5ZB2XHczkrf5nfbdHAVnkAV9jAtEJYAEDnLVY2y3mTUXbWPR1DR8QV+hiIhWPAiNpQreET/xhwUA34alRXp8nmkwUAVHQAo1zUeZOtA9zXAscP4siF54O1oDnWbK0q5CV0qzUfIKtWvS3jtYHjkec/Aq+P8UdeFGpifmIEgC7njbda4B6ukshrelF4vhN0Z8dea7V479WdrlAApBuDy8aR5x3zI9IgnndYd2Oz8vNrMO5ynsm11SGKFiPizUFpzeGFS01t+Spm5BQAkm1B61Dz6w1Q0CMwDR+XDTqt2D8qt8OojpoArvPBZmfWplkXqbSzAEg3Ap3IAd+DaSKC6aLnPzgnyOB5UTTXAfNu4pxfEw0uDQBusQ7uOJM3nbeR+XfpwYBNaE5TnqUEwG3WwZIzGTtvURjNBWGnWaTzpkn/9vYD6KowTz5anUlHnTeefuBJ0xcWIK+hEs5kKZw3HuXypOl7APA4k8D2zfaeyUvkvPEolyfN/wHOqLbqUjYvAQAAAABJRU5ErkJggg==" style="float:right;margin:0 0 20px 20px;" />
+		
+		Unlike other platforms like iOS and Android, the first-tier languages of web applications are HTML, CSS, and JavaScript, backed by a world wide web of developer resources. The web stack is available on all modern mobile and desktop hardware - this allows you to maximize code reuse and reach a massive audience on different platforms and devices with little additional effort.  In this tutorial, we'll explore the different aspects of HTML5 app creation, the strategies for designing a flexible, functional app, coding an app to completion.</p>
+	
+	<p>Over the course of the tutorial, we'll be employing these techniques and technologies to create a Twitter-based application meant for desktop, mobile phone, and mobile tablet devices.  Once the app is completed, we'll create the appropriate manifests for placing our app up for download on the <a href="https://marketplace.mozilla.org/">Mozilla Marketplace</a>!</p>
+	
+	<h2>1.  Elements of a HTML5 App</h2>
+	<p>While the role of HTML, CSS, and JavaScript are obvious to some, let's do a quick recap of how each plays its own important role in a web app.</p>
+	
+	<h4>HTML(5)</h4>
+	<p>HTML will provide the content structure for the web application.  <a href="https://developer.mozilla.org/en/HTML/HTML5">New features to HTML5</a> include new INPUT types, form validation support, media tags like <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags, and <a href="https://developer.mozilla.org/en/Sections_and_Outlines_of_an_HTML5_document">more semantic HTML elements</a>.</p>
+	
+	<h4>CSS</h4>
+	<p>CSS provides the presentation layer, allowing for basic layout of content.  CSS can do more than just format content though;  we can use the power of CSS to <a href="https://developer.mozilla.org/en/CSS/CSS_animations">animate elements</a>, create <a href="https://developer.mozilla.org/en/Using_gradients">precise gradients</a> so as to avoid unnecessary image usage, and create <a href="https://developer.mozilla.org/en/CSS/Media_queries">media queries</a> which will allow us to adjust the presentation to the user's device.</p>
+	
+	<h4>JavaScript</h4>
+	<p>JavaScript provides the level of dynamism and user interaction for the HTML5 app.  JavaScript will allow us to <a href="https://developer.mozilla.org/en/DOM/element.addEventListener">listen for and respond to user interactions</a>, <a href="https://developer.mozilla.org/en/Ajax">load content dynamically</a>, and get access to device-specific features, like the <a href="https://developer.mozilla.org/en/DOM/Using_the_Camera_API">Camera API</a> and <a href="https://developer.mozilla.org/en/Using_geolocation">Geolocation API</a>.</p>
+	
+	<p class="callout">It's important to note that support for individual features varies from browser to browser; <a href="https://developer.mozilla.org/en/Browser_Feature_Detection">feature detection</a> and research should be done before using each feature (<em>these strategies will be covered in depth below</em>).</p>
+		
+	<p>With the technologies laid out, let’s get started with an introduction to a few popular developer tools that can help increase your efficiency.</p>
+	
+	<h2>1.5 Configuring Your Development Environment</h2>
+	<p>Before you can dive into creating your web application, you'll need to make sure you have the tools required.</p>
+	
+	<h4>Text Editors</h4>
+	<p>A solid text editor is the most crucial of those tools.  There are several free text editors available, including:</p>
+	<ul>
+		<li><a href="http://www.sublimetext.com/">Sublime Text</a> <span class="inlineNote">Cross platform</span></li>
+		<li><a href="http://notepad-plus-plus.org/">Notepad++</a> <span class="inlineNote">Windows only</span></li>
+		<li><a href="http://jedit.org/">jEdit</a> <span class="inlineNote">Cross platform</span></li>
+	</ul>
+	
+	<h4>Web Developer Tools</h4>
+	<p>As you would expect, testing and debugging of your application will be done within the browser.  You’ll want to snag a few handy developer tools for your browser. These tools will help with everything from the inspection and styling of visual elements of your app, to observing network traffic and debugging JavaScript. We strongly suggest you find a combination of tools that works for you, they can be a lifesaver.</p>
+	
+	<ul>
+		<li>
+			Firefox
+			<ul>
+				<li><a href="http://getfirebug.com/">Firebug</a></li>
+				<li><a href="https://addons.mozilla.org/en-US/firefox/collections/mozilla/webdeveloper/">Web Developer's Toolbox Collection</a></li>
+			</ul>
+		</li>
+		<li>
+			Chrome
+			<ul>
+				<li>Web Inspector</li>
+				<li><a href="https://chrome.google.com/webstore/detail/bfbameneiokkgbdmiekhjnmfkcnldhhm">Web Developer</a> <span class="inlineNote">Official port of Firefox's plugin</span></li>
+				<li><a href="https://chrome.google.com/webstore/detail/gbkffbkamcejhkcaocmkdeiiccpmjfdi">Pendule</a></li>
+			</ul>
+		</li>
+	</ul>
+	
+	<p>Additional resources can be added to your development environment as needed, but a text editor, browser, and developer tools will get you well on your way to creating a great HTML5 app!</p>
+	
+	<h2>2.0 Designing Your App</h2>
+	<p>
+		There are many considerations to ponder before designing your HTML5 app.
+	</p>
+	
+	<h3>Design Considerations</h3>
+	
+	<h4>Device Support &amp; Design Emulation</h4>
+	<p>Knowing the device set your application should work on is of utmost importance.  Knowing the target devices and their capabilities tells us what features we can likely count on, what UI components should look like, and so on.  Many mobile JavaScript frameworks, <a href="http://dojotoolkit.org/features/mobile">Dojo Mobile</a> being one of them, provide multiple device themes for easy device theme implementation.  Even if you prefer not to use the given JavaScript framework, you can still study the device theme stylesheet and borrow styles as desired.</p>
+	
+	<h4>Orientation Support</h4>
+	<p>Orientation support is a huge consideration when creating an HTML5 app capable of working on mobile devices.  One obvious orientation consideration is that desktop apps use horizontal orientation by default, whereas mobile devices use portrait as the default orientation.  An ideal web application displays well in both orientations.  Both JavaScript and CSS media queries  provide developers the capability to detect and react to orientation changes as they happen.</p>
+	
+	<h4>Gestures vs. Basic Touch Events</h4>
+	<p>Consider the navigation interaction paths you desire for your application.  Will the application be navigatable by button touch or gestures?  The answer to that question decides whether your application must make room for static controls or must subtly communicate to the user that gestures should be available.  JavaScript libraries like <a href="http://jgestures.codeplex.com/">jGestures</a> exist to aid in gesture detection.</p>
+	
+	<h3>Basic App Design Principles</h3>
+	<p>Regardless of the specific devices you plan to support, there are a few basic principles which should be obeyed when creating HTML5-based applications:</p>
+	<ul>
+		<li><strong>Avoid pixel-based widths</strong> when designing for multiple devices and/or multiple orientations</li>
+		<li><strong>Use vector graphics</strong> so that their dimensions may be elegantly adjusted between devices</li>
+		<li><strong>Don't assume features</strong> on any device; feature detection is still important</li>
+		<li>The more flexible the app design, the more portable it will be when considering broader device support</li>
+	</ul>
+	
+	<p class="todo"><strong>LOTS MORE DESIGN STUFF HERE;  BREAKING FOR NOW</strong></p>
+	
+	<h2>3. Coding Your App</h2>
+	<p>Outside the different colors and imagery that apps use, an app's design isn't necessarily dynamic:  the principles of designing a flexible app are largely the same.  The style and tools with which a developer uses to code their application is a completely different story;  numerous libraries and frameworks are available for coding mobile application.</p>
+	
+	<h3>JavaScript Libraries</h3>
+	
+	<h4>jQuery Mobile</h4>
+	<p><a href="http://jquery.com">jQuery's</a> official mobile framework, <a href="http://jquerymobile.com/">jQuery Mobile</a>.  jQuery mobile provides a unified, HTML5-based user interface system for all popular mobile device platforms.  jQuery Mobile also provides a theme builder for application design as well as development.</p>
+	
+	<h4>Dojo Mobile</h4>
+	<p><a href="http://dojotoolkit.org/features/mobile">Dojo Mobile</a> is the <a href="http://dojotoolkit.org">Dojo Toolkit's</a> outstanding JavaScript framework, boasting a series of flexible views and widgets, automatic device detection and theme, and more.  The <a href="http://demos.dojotoolkit.org/demos/demos.php?cat=mobile">Dojo Mobile Showcase</a> shows advanced Dojo Mobile usage in action.</p>
+	
+	<h4>MooTools Moobile</h4>
+	<p>The unofficial mobile framework of <a href="http://mootools.net">MooTools</a> is called <a href="http://moobilejs.com/">Moobile</a>.  Moobile provides a mobile application boilerplate, as well as a host of simple mobile widgets.</p>
+	
+	<p>Numerous other mobile Javascript frameworks are available to aid the development of mobile web applications.  When looking for a good mobile web app JavaScript framework, look for multi-device support, touch and gesture event support, and a unified API with its host framework.</p>
+	
+	<h3>CSS Libraries, Helpers, and Techniques</h3>
+	<p>
+		CSS plays an important role in any web-based technology.  There are a variety of CSS libraries than may aid you in creating, maintaining, and organizing your CSS.
+	</p>
+	
+	<h4>CSS Preprocessors</h4>
+	<p>While CSS is a simple language, it's lack of variables and the need for repeated style assignments with vendor prefixes can make CSS difficult to maintain -- a pain no mobile app developer needs.  CSS preprocessors ease development of apps, allowing for better code organization and faster development.</p>
+	
+	<p>With one of those CSS preprocessors, <a href="http://lesscss.org/">LESS</a>, CSS can be written like:</p>
+		
+	<pre>
+@someColor: #000; /* color var */
+
+.rounded-corners (@radius: 5px) { /* function */
+	border-radius: @radius;
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+}
+
+p {
+	
+	color: @someColor;
+	
+	a {
+		color: #fff;
+		background: @someColor;
+		
+		.rounded-corners;
+	}
+	
+}
+	</pre>
+	
+	<p>...which will be processed into:</p>
+	
+<pre>
+p { 
+	color: #000;
+}
+
+p a {
+	color: #fff;
+	background: #000;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+	</pre>
+	
+	<p>While LESS is the most popular CSS preprocessor, <a href="http://sass-lang.com/">SASS</a> and <a href="http://learnboost.github.com/stylus/">Stylus</a> are also available.</p>
+	
+	<h4>CSS3 Techniques</h4>
+	<p>HTML5 apps may take advantage of numerous CSS techniques which allow for enriched design and strategies for avoiding the need for imagery.</p>
+	
+	<h5>Gradients</h5>
+	<p>CSS3 provides the ability to create <a href="https://developer.mozilla.org/en/Using_gradients">linear and radial gradients</a> with some simple CSS code:</p>
+	
+<pre>
+h1 { 
+	background-image: -moz-linear-gradient(#6facd5, #497bae);
+}
+</pre>
+	
+	<h5>Box and Text Shadows</h5>
+	<p><a href="https://developer.mozilla.org/en/CSS/box-shadow">Box shadows</a> and <a href="https://developer.mozilla.org/en/CSS/text-shadow">text shadows</a> provide a subtle depth enhancement to block elements and text:</p>
+<pre>
+.shadower {
+	-moz-box-shadow: 10px 5px 5px #000;
+	text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+	color: white;
+	font: 1.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+</pre>
+
+	<h5>Shapes with CSS</h5>
+	<p>CSS also provides the ability to cleverly create shapes likes triangles and circles:</p>
+<pre>
+.arrowRight {
+	width:0px; 
+	height:0px; 
+	border-bottom:5px solid transparent;
+	border-top:5px solid transparent;
+	border-left:5px solid #2f2f2f;
+	font-size:0px;
+	line-height:0px;
+}
+
+.circle {
+	border-radius: 50%;
+	width: 200px;
+	height: 200px;
+}
+</pre>
+
+	<h4>Creating Responsive Layouts</h4>
+	<p>Coding responsive layouts is paramount to creating flexible apps that will work on multiple devices and in multiple orientations.  The following are some techniques for creating such a design.</p>
+	
+	<h5>Percentage Widths</h5>
+	<p>Fixed pixel widths should rarely be used;  percentage widths are preferred as they allow elements to adjust to device viewport dimensions.</p>
+	
+	<h5>Viewport Size-Dependent Element Display</h5>
+	<p>Showing and hiding elements based on viewport size is a common practice.  Instead of cramming a lot of content into a smaller space, or changing an app's design completely, simply hiding those "supporting" elements may be the best option.</p>
+	
+	<h5>Viewport Size-Dependent Imagery</h5>
+	<p>Adapting image sizes to the device viewport size is also a common practice, making vector images the best practice for your HTML5 app.</p>
+	
+	<h5>Media Queries</h5>
+	<p><a href="https://developer.mozilla.org/en/CSS/Media_queries">CSS media queries</a> allow developers to adjust layout and element styles to viewport size, orientation, aspect ratio, and more:</p>
+	
+<pre>
+/* screen size media queries */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+
+}
+
+
+/* orientation media queries */
+@media (orientation:portrait) {
+
+}
+@media (orientation:landscape) {
+
+}
+
+/* advanced media query usage */
+@media all and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+
+}
+
+/* aspect ratio */
+@media screen and (device-aspect-ratio: 16/9) {
+
+}
+</pre>
+	
+	<h5><code>orientationchange</code> and <code>resize</code> Events</h5>
+	<p>Orientation changes may also be detected with JavaScript.  Most browsers fire an <code>orientationchange</code> event while all browsers are known to fire the <code>resize</code> event.</p>
+	
+<pre>
+window.addEventListener("resize", function() { 
+	// Detect orientation based on width
+	var orientation = window.innerWidth > window.innerHeight ? "landscape" : "portrait";
+	
+	// Execute more code accordingly...
+	
+false);
+</pre>
+
+	<h3>Web App Bootstraps</h3>
+	<p>
+		Server side processing of information happens on the app host's servers, so any server side technology may be used.  Popular server side languages include PHP, Python, and <a href="http://nodejs.org/">NodeJS</a> + <a href="http://expressjs.com/">express</a>.  There's a likelihood that your application will want to implement BrowserId for app sign in;  you can find a the code required to implement BrowserID on <a href="https://github.com/mozilla/browserid">GitHub</a>.
+	</p>
+		
+	<h3>App Manifests</h3>
+	<p>
+		Apps submitted to the Mozilla Marketplace require an <a href="https://developer.mozilla.org/en/Apps/Manifest">application manifest</a>.  This manifest contains basic information that a web browser needs to interact with an app.  Manifests are written in JSON syntax;  a sample manifest could look like:
+	</p>
+	
+<pre>
+{
+	"version": "0.1",
+	"name": "Area Tweet",
+	"description": "Find tweets by for any location",
+	"icons": {
+		"16": "/images/icon-16.png",
+		"48": "/images/icon-48.png",
+		"128": "/images/icon-128.png"
+	},
+	"developer": {
+		"name": "David Walsh",
+		"url": "http://davidwalsh.name"
+	},
+	"installs_allowed_from": [
+		"https://marketplace.mozilla.org"
+	],
+	"default_locale": "en"
+}
+</pre>
+
+	<p>The application manifest lives on the host server, <em>not the Mozilla Marketplace</em>  It's recommended that your manifest best served via HTTPS.</p>
+	
+	<p class="callout">A complete listing of all manifest properties can be <a href="https://developer.mozilla.org/en/Apps/Manifest">found here</a>.  There's also a <a href="https://developer.mozilla.org/en/Apps/FAQs/About_app_manifests">Frequently Asked Questions</a> document which provides tips for creating your manifest and explanations for why the manifest hosting process is the way it is.</p>
+	
+	<h3>AppCache Manifests</h3>
+	<p class="todo">Haven't found the documentation for this...</p>
+	
+	
+	<h2>4. App Testing</h2>
+	<p>App testing is of immense importance, especially when supporting multiple platforms and devices.  The amount of tests and types of testing needed depend on the devices and platforms supported.  Test types include:</p>
+	
+	<ul>
+		<li>Speed</li>
+		<li>Performance efficiency</li>
+		<li>Input and output validation</li>
+		<li>Touch and interactivity</li>
+	</ul>
+	
+	<p>While those are the basic test types, there are more ideas to consider while testing.</p>
+	
+	
+	<h3>Web Environment Differences</h3>
+	<p>
+		Here are some considerations when dealing with different web environments:
+	</p>
+	
+	<h4>Vendor Prefixes</h4>
+	<p>Both advanced JavaScript and CSS features within browsers may be vendor prefixed with <code>-webkit</code>, <code>-moz</code>, <code>-o</code>, or <code>-ms</code>.  Know the environments you plan to use and prefix features appropriately.</p>
+	
+	<h4>Feature Detection</h4>
+	<p>Some environments will support a specific feature, others may not.  Feature detection is the best way of knowing which tools are available for a given platform.  For example, to detect support of the Geolocation API, you would code:</p>
+	
+<pre>
+if("geolocation" in navigator) {
+	// Geolocation available, use it!
+}
+</pre>
+	
+	<p><a href="http://caniuse.com/">CanIUse.com</a> provides detailed tables of browser and device support for specific features.  A helping library like <a href="http://modernizr.com/">Modernizr</a> automatically detects features upon page load and provides that information accordingly.</p>
+	
+	<h4>Responsive Design</h4>
+	<p>Using media queries and foresight in design will prevent design issues.  Common pitfalls include not using vector graphics for elements which may grow or shrink, using fixed-dimension elements throughout all devices, not testing different orientations, and simply not looking at your app at different resolutions.  Services like <a href="http://quirktools.com/screenfly/">Screenfly</a> and <a href="http://responsivepx.com/">responsivepx</a> help aid in testing an app at different sizes, but there's no substitute for having a supported device handy for manual testing.</p>
+	
+	<h4>Unit Testing</h4>
+	<p>
+		Unit testing is a common practice in all walks of development, and HTML5 app testing is no different.  Unit testing of CSS and JavaScript is also incredibly easy when an application is coded in a modular fashion.  Popular JavaScript unit testing frameworks include <a href="http://pivotal.github.com/jasmine/">Jasmine</a>, <a href="http://docs.jquery.com/QUnit">QUnit</a>, and <a href="http://yuilibrary.com/yui/docs/test/">YUI Test</a>.  Each unit testing website provides code samples for how to use their test framework.
+	</p>
+	
+	<h4>Performance</h4>
+	<p>Performance testing can be difficult to prescribe since it's wholly dependent upon the tasks performed by the app.  Basic web coding principles like minimizing HTTP requests (JavaScript concatenation or CSS sprites help), JS and CSS minification, placing scripts at the bottom of the page, and properly setting Expires headers all apply.  The YSlow team provides more <a href="http://yslow.org/">helpful web performance best practices</a> to follow, all of which will enhance your HTML5 app.  The HTML5Rocks website also provides a list of <a href="http://www.html5rocks.com/en/features/performance">performance best practices</a>.</p>
+	
+	
+	<h2>5.  Publishing Your App</h2>
+	
+	<h3>Deployment</h3>
+	<p>Once you’ve finished your app, host it on a publicly accessible web server like any other website. There are numerous ways to deploy your app.</p>
+	
+	<h4>GitHub</h4>
+	<p>If the HTML5 app is purely static (HTML/CSS/JavaScript, but no server scripting), <a href="http://pages.github.com/">GitHub Pages</a> is a solid hosting option. Cloud storage service Dropbox can also <a href="http://lifehacker.com/5528104/use-dropbox-to-share-and-host-your-web-site">be used for this purpose</a>.</p>
+	
+	<h4>Generic Hosting Solutions</h4>
+	<p>For dynamic websites, use a generic hosting option (like a web server you may already own) with the right capabilities or a hosting provider specifically tailored to the needs of your app, like <a href="http://www.heroku.com/">Heroku</a> or <a href="http://code.google.com/appengine/">Google App Engine</a>.</p>
+	
+	
+	<h3>Publishing</h3>
+	<p>Once your web app has been deployed, you obviously want to make it installable by your intended user base. There are two options for publishing your app.</p>
+	
+	<h4>Publish on Your Website</h4>
+	<p>If you want to allow people to install your app from a website you own, you must <a href="https://developer.mozilla.org/en/Apps/Apps_JavaScript_API">implement some JavaScript code</a> on your website to manage installing and updating your app into users' browsers.</p>
+	
+	<h4>Submit to Mozilla Marketplace</h4>
+	<p><a href="https://marketplace.mozilla.org/en-US/developers/submit/app">Submitting your app</a> to the Mozilla Marketplace method has many advantages, for example increased publicity, no need to implement special APIs on your own website, and the possibility to publish paid apps more easily.</p>
+	
+	<h2>6.  Managing Your App</h2>
+	
+	
+	<script>
+		/* doing this just because it annoys me */
+		var pres = document.querySelectorAll("pre");
+		for(var x = 0; x < pres.length; x++) {
+			pres[x].innerHTML = pres[x].innerHTML.trim();
+		}
+	</script>
+	</article></body>
+</html>
