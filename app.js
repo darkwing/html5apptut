@@ -100,7 +100,7 @@ $(document).ready(function() {
 					listNode = this.$listNode[0];
 					
 				if(addToTop && listNode.childNodes.length) {
-					listNode.insertBefore($li[0], listNode.childNodes[0]);
+					$li.insertBefore(listNode.childNodes[0]);
 				}
 				else {
 					$li.appendTo(this.$listNode);
