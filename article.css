@@ -23,7 +23,7 @@ ul		{ margin-left: 40px; margin-bottom: 20px; }
 .todo	 { border: 1px solid #facddf; background: #fae8ef; padding: 5px 10px; font-style: italic; }
 .tutBlock { border: 1px solid lightgreen; background: #e1fae1; padding: 10px; }
 	.tutBlock h2 { margin-top: 0; }
-	.tutBlock p:last-child { margin-bottom: 0; }
+	.tutBlock *:last-child { margin-bottom: 0; }
 	.tutBlock pre { background: #ffeffe; }
 
 /* links */
