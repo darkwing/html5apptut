@@ -1,7 +1,6 @@
 /* Todo 
 	
-	0.  Test on different sized devices
-	3.  Clear-localstorage cache capability
+	0.  Test on different sized devices, adjust media queries
 */
 
 $(document).ready(function() {
@@ -201,6 +200,10 @@ $(document).ready(function() {
 				jsonpCallback: "twitterCallback",
 				timeout: 3000
 			});
+		}
+		else {
+			// Focus on the search box
+			$locationInput[0].focus();
 		}
 		
 		return false;
