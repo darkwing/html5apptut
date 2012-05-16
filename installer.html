@@ -1,0 +1,20 @@
+<script>
+	
+	function install() {
+		var r = navigator.mozApps.install('http://davidwalsh.name/dw-content/html5apptut/app.manifest');
+		
+		console.warn(r);
+		
+		r.onsuccess = function () {
+		  // Save the App object that is returned
+		  var appRecord = this.result;
+		  alert('Installation successful!')
+		};
+		r.onerror = function () {
+		  alert('Install failed, error: ' + this.error.name);
+		};
+	}
+	
+	
+</script>
+<a href="javascript:;" onclick="install();">Install</a>

@@ -3,16 +3,17 @@
 	"name": "Area Tweet",
 	"description": "Find tweets by for any location",
 	"icons": {
-		"16": "/images/icon-16.png",
-		"48": "/images/icon-48.png",
-		"128": "/images/icon-128.png"
+		"16": "images/icon-16.png",
+		"48": "images/icon-48.png",
+		"128": "images/icon-128.png"
 	},
 	"developer": {
 		"name": "David Walsh",
-		"url": "http://davidwalsh.name"
+		"url": "http://areatweet.com"
 	},
 	"installs_allowed_from": [
-		"https://marketplace.mozilla.org"
+		"https://marketplace.mozilla.com",
+		"http://areatweet.com"
 	],
 	"default_locale": "en"
 }
