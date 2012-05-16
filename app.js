@@ -155,7 +155,7 @@ $(document).ready(function() {
 	window.twitterCallback = function(twitterData) {
 		
 		var json = $.parseJSON(twitterData),
-			template = "<li><img src='{profile_image_url}' />  <strong>{from_user}</strong><br />{text}</li>",
+			template = "<li><img src='{profile_image_url}' class='tweetImage' /><div class='tweetContent'><strong>{from_user}</strong><br />{text}</div></li>",
 			tweetHTMLs = [];
 		
 		// Format the tweets

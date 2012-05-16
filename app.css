@@ -26,8 +26,25 @@
 
 
 /* Customizing jQuery Styles */
-#tweetList li.ui-li-divider, 
-#tweetList li.ui-li-static 		{ font-weight: normal !important; }
+#tweetsList li.ui-li-divider, 
+#tweetsList li.ui-li-static 		{ font-weight: normal !important; }
+
+
+/* Tweet list */
+#tweetsList li {
+	clear: both;
+}
+
+#tweetsList li .tweetImage {
+	float: left;
+	margin: 10px 20px 0 10px;
+}
+
+#tweetsList li .tweetContent {
+	float: left;
+	margin: 10px 0 0 0;
+}
+
 
 
 /* Media Queries for device support */
