@@ -1,0 +1,33 @@
+
+/* animations */
+@-moz-keyframes fadeIn {
+	0% 		{ opacity: 0; }
+	100% 	{ opacity: 1; }
+}
+@-webkit-keyframes fadeIn {
+	0% 		{ opacity: 0; }
+	100% 	{ opacity: 1; }
+}
+
+.fadeIn { 
+	-moz-animation-name: fadeIn;
+	-moz-animation-duration: 2s;
+	
+	-webkit-animation-name: fadeIn;
+	-webkit-animation-duration: 2s;
+	
+	opacity: 1 !important;
+}
+
+/* Custom CSS classes */
+.hidden				{ display: none; }
+.opaque				{ opacity: 0; }
+
+
+
+/* Customizing jQuery Styles */
+#tweetList li.ui-li-divider, 
+#tweetList li.ui-li-static 		{ font-weight: normal !important; }
+
+
+/* Media Queries for device support */
