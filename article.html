@@ -19,7 +19,7 @@
 		
 		Unlike other platforms like iOS and Android, the first-tier languages of web applications are HTML, CSS, and JavaScript, backed by a world wide web of developer resources. The web stack is available on all modern mobile and desktop hardware - this allows you to maximize code reuse and reach a massive audience on different platforms and devices with little additional effort.  In this tutorial, we'll explore the different aspects of HTML5 app creation, the strategies for designing a flexible, functional app, coding an app to completion.</p>
 	
-	<p>Over the course of the tutorial, we'll be employing these techniques and technologies to create a Twitter-based application meant for desktop, mobile phone, and mobile tablet devices.  Once the app is completed, we'll create the appropriate manifests for placing our app up for download on the <a href="https://marketplace.mozilla.org/">Mozilla Marketplace</a>!</p>
+	<p class="tutBlock">Over the course of the tutorial, we'll be employing these techniques and technologies to create a Twitter-based application meant for desktop, mobile phone, and mobile tablet devices.  Once the app is completed, we'll create the appropriate manifests for placing our app up for download on the <a href="https://marketplace.mozilla.org/">Mozilla Marketplace</a>!</p>
 	
 	<h2>1.  Elements of a HTML5 App</h2>
 	<p>While the role of HTML, CSS, and JavaScript are obvious to some, let's do a quick recap of how each plays its own important role in a web app.</p>
@@ -98,6 +98,13 @@
 	
 	<p class="todo"><strong>LOTS MORE DESIGN STUFF HERE;  BREAKING FOR NOW</strong></p>
 	
+	<div class="tutBlock">
+		<p>The design of our app will be very standard.  Our app will provide two panes.  The first pane will provide a search box for field for entering the user's location, as well as a list of previous location searches. The second pane will simply show a list of tweets from Twitter.  Each pane will use a standard heading.</p>
+		
+		<p>Our app will also be dynamic in that it will layout properly in both landscape and portrait orientation, respond to a sample swipe gesture, and display reasonably on desktop and mobile devices.</p>
+	</div>
+	
+	
 	<h2>3. Coding Your App</h2>
 	<p>Outside the different colors and imagery that apps use, an app's design isn't necessarily dynamic:  the principles of designing a flexible app are largely the same.  The style and tools with which a developer uses to code their application is a completely different story;  numerous libraries and frameworks are available for coding mobile application.</p>
 	
@@ -113,6 +120,9 @@
 	<p>The unofficial mobile framework of <a href="http://mootools.net">MooTools</a> is called <a href="http://moobilejs.com/">Moobile</a>.  Moobile provides a mobile application boilerplate, as well as a host of simple mobile widgets.</p>
 	
 	<p>Numerous other mobile Javascript frameworks are available to aid the development of mobile web applications.  When looking for a good mobile web app JavaScript framework, look for multi-device support, touch and gesture event support, and a unified API with its host framework.</p>
+	
+	<p class="tutBlock">The HTML5 app built within this tutorial will utilize jQuery Mobile.</p>
+	
 	
 	<h3>CSS Libraries, Helpers, and Techniques</h3>
 	<p>
@@ -299,6 +309,173 @@ false);
 	
 	<h3>AppCache Manifests</h3>
 	<p class="todo">Haven't found the documentation for this...</p>
+	
+	
+	<div class="tutBlock">
+		<p>With all of the design goals and coding standards laid out, it's time to get into the coding of our app.  As with any HTML5 application template, we need a HTML page with the HTML5 DOCTYPE, <code>HEAD</code>, and <code>BODY</code>elements:</p>
+		
+<pre>
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;title&gt;&lt;/title&gt;
+	
+	&lt;meta charset="utf-8" /&gt;
+	&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8" /&gt;
+	
+	&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt; 
+	
+	&lt;!-- stylesheets go here --&gt;
+	
+&lt;/head&gt;
+&lt;/html&gt;
+&lt;body&gt;
+	
+	&lt;!-- HTML app structure goes here --&gt;
+	
+	
+	&lt;!-- javascript goes here --&gt;
+	
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+	
+		<p>We'll be using jQuery Mobile as the JavaScript framework;  that means we must pull in the CSS and JavaScript resources required by jQuery Mobile:</p>
+
+<pre>
+&lt;!-- stylesheets --&gt;
+&lt;link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" /&gt;
+	
+&lt;!-- scripts --&gt;
+&lt;script src="http://code.jquery.com/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"&gt;&lt;/script&gt;
+</pre>
+	
+
+		<p>With our basic application boilerplate and jQuery Mobile resource in place, it's time to add content and widgets to the page.  Since we've decided on using jQuery Mobile for our application framework, our app's HTML structure will follow their prescribed widget structures.  The first pane provides a search box and a history list:</p>
+		
+<pre>
+&lt;!-- home pane --&gt;
+&lt;div data-role="page" id="home"&gt;
+	
+	&lt;div data-role="header"&gt;
+		&lt;h1&gt;Area Tweet&lt;/h1&gt;
+	&lt;/div&gt;
+	
+	&lt;div data-role="content"&gt;
+		
+		&lt;div class="ui-body ui-body-b"&gt;
+			&lt;h2&gt;Location Search&lt;/h2&gt;
+			&lt;form id="locationForm"&gt;
+				&lt;input type="search" name="location" id="locationInput" placeholder="Your Location" /&gt;
+				&lt;button type="submit" data-role="button" data-theme="b"&gt;Search&lt;/button&gt;
+			&lt;/form&gt;
+		&lt;/div&gt;
+		
+		&lt;div id="prevLocationsContainer" class="opaque"&gt;
+			&lt;h2&gt;
+				Previous Locations
+				&lt;a href="#" id="clearHistoryButton" data-role="button" data-icon="delete" data-iconpos="notext" data-theme="b" data-inline="true" style="top: 5px;"&gt;Clear History&lt;/a&gt;
+			&lt;/h2&gt;
+			&lt;ul id="prevLocationsList" data-role="listview" data-inset="true" data-filter="true"&gt;&lt;/ul&gt;
+		&lt;/div&gt;
+		
+	&lt;/div&gt;
+&lt;/div&gt;
+</pre>
+
+	
+		
+		<p>There are a few things to notice with the code above:</p>
+		
+		<ul>
+			<li>The structure of the HTML5 sticks to semantics; that ensures maximum accessibility</li>
+			<li>As per any web-based app, we assign CSS classes and IDs to elements we'll want styled and handles to for JavaScript purposes</li>
+		</ul>
+		
+		<p class="callout">If you have questions about individual jQuery mobile functionalities, node attributes, or structures, please consult the <a href="http://jquerymobile.com/demos">jQuery Mobile Documentation</a>.</p>
+		
+		<p>The second pane will simply used for displaying a list of tweets:</p>
+		
+<pre>
+&lt;!-- tweets pane --&gt;
+&lt;div data-role="page" id="tweets"&gt;
+	
+	&lt;div data-role="header"&gt;
+		&lt;a href="#home" id="tweetsBackButton"&gt;Back&lt;/a&gt;
+		
+		&lt;h1&gt;&lt;span id="tweetsHeadTerm"&gt;&lt;/span&gt; Tweets&lt;/h1&gt;
+	&lt;/div&gt;
+	
+	&lt;ul id="tweetsList" data-role="listview" data-inset="true"&gt;&lt;/ul&gt;
+	
+&lt;/div&gt;
+</pre>
+		
+		<p>With the two views created, custom CSS styles may be added app:</p>
+		
+<pre>
+
+/* animations */
+@-moz-keyframes fadeIn {
+	0% 		{ opacity: 0; }
+	100% 	{ opacity: 1; }
+}
+@-webkit-keyframes fadeIn {
+	0% 		{ opacity: 0; }
+	100% 	{ opacity: 1; }
+}
+
+.fadeIn { 
+	-moz-animation-name: fadeIn;
+	-moz-animation-duration: 2s;
+	
+	-webkit-animation-name: fadeIn;
+	-webkit-animation-duration: 2s;
+	
+	opacity: 1 !important;
+}
+
+/* Custom CSS classes */
+.hidden				{ display: none; }
+.opaque				{ opacity: 0; }
+
+/* Basic styling */
+#prevLocationsContainer { margin-top: 40px; }
+
+/* Customizing jQuery Styles */
+#tweetsList li.ui-li-divider, 
+#tweetsList li.ui-li-static 		{ font-weight: normal !important; }
+
+
+/* Tweet list */
+#tweetsList li {
+	clear: both;
+}
+
+#tweetsList li .tweetImage {
+	float: left;
+	margin: 10px 20px 0 10px;
+}
+
+#tweetsList li .tweetContent {
+	float: left;
+	margin: 10px 0 0 0;
+}
+
+#tweetsList li .tweetContent strong {
+	display: block;
+	padding-bottom: 5px;
+}
+
+/* Media Queries for device support */
+</pre>
+
+		<p class="todo">MUST ADD MEDIA QUERIES FOR DEVICE SUPPORT</p>
+		
+		
+	</div>
+	
 	
 	
 	<h2>4. App Testing</h2>

@@ -21,6 +21,10 @@ ul		{ margin-left: 40px; margin-bottom: 20px; }
 .callout { border: 1px solid #ececcd; background: #fffff1; padding: 10px; margin: 10px 200px 20px 0; }
 .inlineNote { font-size: 14px; color: #999; font-variant: small-caps; }
 .todo	 { border: 1px solid #facddf; background: #fae8ef; padding: 5px 10px; font-style: italic; }
+.tutBlock { border: 1px solid lightgreen; background: #e1fae1; padding: 10px; }
+	.tutBlock h2 { margin-top: 0; }
+	.tutBlock p:last-child { margin-bottom: 0; }
+	.tutBlock pre { background: #ffeffe; }
 
 /* links */
 a 		{ color: #0553ba; }
