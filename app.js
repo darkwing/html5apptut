@@ -1,3 +1,14 @@
+/* Todo 
+	
+	0.  Test on different sized devices
+	1.  Switch to YQL for Twitter data pull
+	2.  Clear-localstorage cache capability
+	3.  Show a map above the list?
+	
+
+
+*/
+
 $(document).ready(function() {
 	
 	// DEBUG
@@ -16,9 +27,6 @@ $(document).ready(function() {
 		
 		$tweetsHeadTerm = $("#tweetsHeadTerm"),
 		$tweetsList = $("#tweetsList");
-		
-	// Template
-	
 	
 	// Create an application object
 	app = {
