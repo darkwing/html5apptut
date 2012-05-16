@@ -471,7 +471,301 @@ false);
 /* Media Queries for device support */
 </pre>
 
+		<p>Our HTML5 app CSS contains a CSS animation for fading in any element, as well as overriding jQuery Mobile styles, and general element styling.</p>
+
 		<p class="todo">MUST ADD MEDIA QUERIES FOR DEVICE SUPPORT</p>
+		
+		<p>JavaScript is the last major component to add to our HTML5 app.  The following encompasses the whole of functionality for the HTML5 app:</p>
+		
+<pre>
+$(document).ready(function() {
+	
+	// Start from scratch on page load
+	if(window.location.hash) {
+		window.location = "index.html";
+	}
+	
+	// Feature tests and settings
+	var hasLocalStorage = "localStorage" in window,
+		maxHistory = 10;
+	
+	// List of elements we'll use
+	var $locationForm = $("#locationForm"),
+		$locationInput = $("#locationInput"),
+		
+		$prevLocationsContainer = $("#prevLocationsContainer"),
+		
+		$tweetsHeadTerm = $("#tweetsHeadTerm"),
+		$tweetsList = $("#tweetsList");
+		
+	// Hold last request jqXHR's so we can cancel to prevent multiple requests
+	var lastRequest;
+	
+	// Create an application object
+	app = {
+		
+		// App initialization
+		init: function() {
+			var self = this;
+			
+			// Focus on the search box
+			$locationInput[0].focus();
+			
+			// Add the form submission event
+			$locationForm.submit(onFormSubmit);
+			
+			// Show history if there are items there
+			this.history.init();
+			
+			// When the back button is clicked in the tweets pane, reset the form and focus
+			$("#tweetsBackButton").click(function(e) {
+				$locationInput.val("");
+				setTimeout(function() { $locationInput[0].focus(); }, 1000);
+			});
+			
+			// Geolocate! 
+			geolocate();
+			
+			// When the tweets pane is swipe, go back to home
+			$("#tweets").bind("swiperight", function() {
+				window.location.hash = "";
+			});
+			
+			// Clear history when button clicked
+			$("#clearHistoryButton").click(function(e) {
+				e.preventDefault();
+				localStorage.removeItem("history");
+				self.history.hideList();
+			})
+		},
+		
+		// History modules
+		history: {
+			$listNode: $("#prevLocationsList"),
+			$blockNode: $("#homePrev"),
+			init: function() {
+				var history = this.getItemsFromHistory(),
+					self = this;
+				
+				// Add items to the list
+				if(history.length) {
+					history.forEach(function(item) {
+						self.addItemToList(item);
+					});
+					self.showList();
+				}
+				
+				// Use event delegation to look for list items clicked
+				this.$listNode.delegate("a", "click", function(e) {
+					$locationInput.val(e.target.textContent);
+					onFormSubmit();
+				});
+			},
+			getItemsFromHistory: function() {
+				var history = "";
+				
+				if(hasLocalStorage) {
+					history = localStorage.getItem("history");
+				}
+				
+				return history ? JSON.parse(history) : [];
+			},
+			addItemToList: function(text, addToTop) {
+				var $li = $("&lt;li&gt;&lt;a href='#'&gt;" + text + "&lt;/a&gt;&lt;/li&gt;"),
+					listNode = this.$listNode[0];
+					
+				if(addToTop && listNode.childNodes.length) {
+					$li.insertBefore(listNode.childNodes[0]);
+				}
+				else {
+					$li.appendTo(this.$listNode);
+				}
+				
+				this.$listNode.listview("refresh");
+			},
+			addItemToHistory: function(text, addListItem) {
+				var currentItems = this.getItemsFromHistory(),
+					newHistory = [text],
+					self = this,
+					found = false;
+				
+				// Cycle through the history, see if this is there
+				$.each(currentItems, function(index, item) {
+					if(item.toLowerCase() != text.toLowerCase()) {
+						newHistory.push(item);
+					}
+					else {
+						// We've hit a "repeater"; signal to remove from list
+						found = true;
+						self.moveItemToTop(text);
+					}
+				});
+				
+				// Add a new item to the top of the list
+				if(!found && addListItem) {
+					this.addItemToList(text, true);
+				}
+				
+				// Limit history to 10 items
+				if(newHistory.length &gt; maxHistory) {
+					newHistory.length = maxHistory;
+				}
+				
+				// Set new history
+				if(hasLocalStorage) {
+					localStorage.setItem("history", JSON.stringify(newHistory));
+				}
+				
+				// Show the list
+				this.showList();
+			},
+			showList: function() {
+				$prevLocationsContainer.addClass("fadeIn");
+				this.$listNode.listview("refresh");
+			},
+			hideList: function() {
+				$prevLocationsContainer.removeClass("fadeIn");
+			},
+			moveItemToTop: function(text) {
+				var self = this,
+					$listNode = this.$listNode;
+				
+				$listNode.children().each(function() {
+					if($.trim(this.textContent.toLowerCase()) == text.toLowerCase()) {
+						$listNode[0].removeChild(this);
+						self.addItemToList(text, true);
+					}
+				});
+				
+				$listNode.listview("refresh");
+			}
+		}
+		
+	};
+	
+	// Search submission
+	function onFormSubmit(e) {
+		if(e) e.preventDefault();
+		
+		// Trim the value
+		var value = $.trim($locationInput.val());
+		
+		// Move to the tweets pane
+		if(value) {
+			
+			// Add the search to history
+			app.history.addItemToHistory(value, true);
+			
+			// Update the pane 2 header
+			$tweetsHeadTerm.html(value);
+			
+			// If there's another request at the moment, cancel it
+			if(lastRequest && lastRequest.readyState != 4) {
+				lastRequest.abort();
+			}
+			
+			// Make the JSONP call to Twitter
+			lastRequest = $.ajax("http://search.twitter.com/search.json", {
+				cache: false,
+				crossDomain: true,
+				data: {
+					q: value
+				},
+				dataType: "jsonp",
+				jsonpCallback: "twitterCallback",
+				timeout: 3000
+			});
+		}
+		else {
+			// Focus on the search box
+			$locationInput[0].focus();
+		}
+		
+		return false;
+	}
+	
+	// Twitter reception
+	window.twitterCallback = function(json) {
+		
+		var template = "&lt;li&gt;&lt;img src='{profile_image_url}' class='tweetImage' /&gt;&lt;div class='tweetContent'&gt;&lt;strong&gt;{from_user}&lt;/strong&gt;{text}&lt;/div&gt;&lt;/li&gt;",
+			tweetHTMLs = [];
+			
+		// Basic error handling
+		if(json.error) { // Error for twitter
+			showDialog("Twitter Error", "Twitter cannot provide tweet data.");
+			return;
+		}
+		else if(!json.results.length) { // No results
+			showDialog("Twitter Error", "No tweets could be found in your area.");
+			return;
+		}
+		
+		// Format the tweets
+		$.each(json.results, function(index, item) {
+			item.text = item.text.
+						replace(/(https?:\/\/\S+)/gi,'&lt;a href="$1" target="_blank"&gt;$1&lt;/a&gt;').
+						replace(/(^|\s)@(\w+)/g,'$1&lt;a href="http://twitter.com/$2" target="_blank"&gt;@$2&lt;/a&gt;').
+						replace(/(^|\s)#(\w+)/g,'$1&lt;a href="http://search.twitter.com/search?q=%23$2" target="_blank"&gt;#$2&lt;/a&gt;')
+			tweetHTMLs.push(substitute(template, item));
+		});
+		
+		// Place tweet data into the form
+		$tweetsList.html(tweetHTMLs.join(""));
+		
+		// Refresh the list view for proper formatting
+		try {
+			$tweetsList.listview("refresh");
+		}
+		catch(e) {}
+		
+		// Go to the tweets view
+		window.location.hash = "tweets";
+	};
+	
+	// Template substitution
+	function substitute(str, obj) {
+		return str.replace((/\\?\{([^{}]+)\}/g), function(match, name){
+			if (match.charAt(0) == '\\') return match.slice(1);
+			return (obj[name] != null) ? obj[name] : '';
+		});
+	}
+	
+	// Geolocates the user
+	function geolocate() {
+		if(false) { //"geolocation" in navigator) {
+			// Attempt to get the user position
+			navigator.geolocation.getCurrentPosition(function(position) {
+				// Set the address position 
+				if(position.address && position.address.city) {
+					$locationInput.val(position.address.city);
+				}
+			});
+		}
+	}
+	
+	// Modal function
+	function showDialog(title, message) {
+		$("#errorDialog h2.error-title").html(title);
+		$("#errorDialog p.error-message").html(message);
+		$.mobile.changePage("#errorDialog");
+	}
+	
+	
+	// Init the app
+	app.init();
+	
+});	
+</pre>
+		
+		<p>I wont go over every part of the app's JavaScript, but a few items are worth pointing out:</p>
+		
+		<ul>
+			<li>The script above uses feature testing for both <code>localStorage</code> and <code>geolocation</code>.  The app wont attempt to use either feature it they aren't present in the browser.</li>
+			<li>The <code>geolocation</code> API is used to detect the user's current location and the <code>localStorage</code> API is used to keep the user's search history</li>
+			<li>The application JavaScript has been written modularly for easier testing</li>
+			<li>A swipe event is listened for on the tweet pane;  when the pane is swiped, the user taken back to the first pane</li>
+			<li>Twitter is the source of all data;  no custom server side processing is included for this app</li>
+		</ul>
 		
 		
 	</div>

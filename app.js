@@ -1,8 +1,3 @@
-/* Todo 
-	
-	0.  Test on different sized devices, adjust media queries
-*/
-
 $(document).ready(function() {
 	
 	// Start from scratch on page load
