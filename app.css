@@ -23,7 +23,8 @@
 .hidden				{ display: none; }
 .opaque				{ opacity: 0; }
 
-
+/* Basic styling */
+#prevLocationsContainer { margin-top: 40px; }
 
 /* Customizing jQuery Styles */
 #tweetsList li.ui-li-divider, 
@@ -45,6 +46,9 @@
 	margin: 10px 0 0 0;
 }
 
-
+#tweetsList li .tweetContent strong {
+	display: block;
+	padding-bottom: 5px;
+}
 
 /* Media Queries for device support */

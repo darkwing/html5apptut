@@ -1,7 +1,9 @@
 $(document).ready(function() {
 	
 	// DEBUG
-	window.location.hash = "";
+	if(window.location.hash) {
+		window.location = "index.html";
+	}
 	
 	// Feature tests
 	var hasLocalStorage = "localStorage" in window;
@@ -38,6 +40,9 @@ $(document).ready(function() {
 				$locationInput.val("");
 				setTimeout(function() { $locationInput[0].focus(); }, 1000);
 			});
+			
+			// Geolocate! 
+			geolocate();
 		},
 		
 		// History modules
@@ -155,7 +160,7 @@ $(document).ready(function() {
 	window.twitterCallback = function(twitterData) {
 		
 		var json = $.parseJSON(twitterData),
-			template = "<li><img src='{profile_image_url}' class='tweetImage' /><div class='tweetContent'><strong>{from_user}</strong><br />{text}</div></li>",
+			template = "<li><img src='{profile_image_url}' class='tweetImage' /><div class='tweetContent'><strong>{from_user}</strong>{text}</div></li>",
 			tweetHTMLs = [];
 		
 		// Format the tweets
@@ -186,6 +191,19 @@ $(document).ready(function() {
 			if (match.charAt(0) == '\\') return match.slice(1);
 			return (obj[name] != null) ? obj[name] : '';
 		});
+	}
+	
+	// Geolocates the user
+	function geolocate() {
+		if("geolocation" in navigator) {
+			// Attempt to get the user position
+			navigator.geolocation.getCurrentPosition(function(position) {
+				// Set the address position 
+				if(position.address && position.address.city) {
+					$locationInput.val(position.address.city);
+				}
+			});
+		}
 	}
 	
 	
