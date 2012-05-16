@@ -75,6 +75,8 @@ $(document).ready(function() {
 				else {
 					$li.appendTo(this.$listNode);
 				}
+				
+				this.$listNode.listview("refresh");
 			},
 			addItemToHistory: function(text, addListItem) {
 				var currentItems = this.getItemsFromHistory(),
@@ -104,6 +106,7 @@ $(document).ready(function() {
 			},
 			showList: function() {
 				$prevLocationsContainer.addClass("fadeIn");
+				this.$listNode.listview("refresh");
 			},
 			moveItemToTop: function(text) {
 				var listNode = this.$listNode[0],
@@ -167,6 +170,11 @@ $(document).ready(function() {
 		// Format links per tweet
 		var massHTML = tweetHTMLs.join("");
 		$tweetsList.html(massHTML);
+		
+		try {
+			$tweetsList.listview("refresh");
+		}
+		catch(e) {}
 		
 		// Go to the tweets view
 		window.location.hash = "tweets";
