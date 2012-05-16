@@ -32,7 +32,10 @@
 			
 			
 			<div id="prevLocationsContainer" class="opaque">
-				<h2>Previous Locations</h2>
+				<h2>
+					Previous Locations
+					<a href="#" id="clearHistoryButton" data-role="button" data-icon="delete" data-iconpos="notext" data-theme="b" data-inline="true" style="top: 5px;">Clear History</a>
+				</h2>
 				<ul id="prevLocationsList" data-role="listview" data-inset="true" data-filter="true"></ul>
 			</div>
 			
@@ -53,8 +56,20 @@
 		
 	</div>
 	
-	<!-- "Detecting location" overlay -->
-	<div 
+	
+	<!-- create an initial dialog in case of problems -->
+	<div data-role="dialog" id="errorDialog">
+		<div data-role="header" data-theme="f">
+			<h1>Error</h1>
+		</div>
+
+		<div data-role="content" data-theme="d">
+			<h2 class="error-title">Blah blah error title blah</h2>
+			<p class="error-message">Blah blah error message blah. Blah blah error message blah. Blah blah error message blah.</p>
+			<a href="#" data-role="button" data-rel="back">Okay</a>
+		</div>
+	</div>
+	
 	
 	
 	<!-- scripts -->
