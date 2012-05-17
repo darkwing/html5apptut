@@ -29,30 +29,30 @@ $(document).ready(function() {
 			var self = this;
 			
 			// Focus on the search box
-			$locationInput[0].focus();
+			focusOnLocationBox();
 			
 			// Add the form submission event
-			$locationForm.submit(onFormSubmit);
+			$locationForm.on("submit", onFormSubmit);
 			
 			// Show history if there are items there
 			this.history.init();
 			
 			// When the back button is clicked in the tweets pane, reset the form and focus
-			$("#tweetsBackButton").click(function(e) {
+			$("#tweetsBackButton").on("click", function(e) {
 				$locationInput.val("");
-				setTimeout(function() { $locationInput[0].focus(); }, 1000);
+				setTimeout(focusOnLocationBox, 1000);
 			});
 			
 			// Geolocate! 
 			geolocate();
 			
 			// When the tweets pane is swipe, go back to home
-			$("#tweets").bind("swiperight", function() {
+			$("#tweets").on("swiperight", function() {
 				window.location.hash = "";
 			});
 			
 			// Clear history when button clicked
-			$("#clearHistoryButton").click(function(e) {
+			$("#clearHistoryButton").on("click", function(e) {
 				e.preventDefault();
 				localStorage.removeItem("history");
 				self.history.hideList();
@@ -133,7 +133,12 @@ $(document).ready(function() {
 				
 				// Set new history
 				if(hasLocalStorage) {
-					localStorage.setItem("history", JSON.stringify(newHistory));
+					// Wrap in try/catch block to prevent mobile safari issues with private browsing
+					// http://frederictorres.blogspot.com/2011/11/quotaexceedederr-with-safari-mobile.html
+					try {
+						localStorage.setItem("history", JSON.stringify(newHistory));
+					}
+					catch(e){}
 				}
 				
 				// Show the list
@@ -198,7 +203,7 @@ $(document).ready(function() {
 		}
 		else {
 			// Focus on the search box
-			$locationInput[0].focus();
+			focusOnLocationBox();
 		}
 		
 		return false;
@@ -207,7 +212,7 @@ $(document).ready(function() {
 	// Twitter reception
 	window.twitterCallback = function(json) {
 		
-		var template = "<li><img src='{profile_image_url}' class='tweetImage' /><div class='tweetContent'><strong>{from_user}</strong>{text}</div></li>",
+		var template = "<li><img src='{profile_image_url}' class='tweetImage' /><div class='tweetContent'><strong>{from_user}</strong>{text}</div><div class='clear'></div></li>",
 			tweetHTMLs = [];
 			
 		// Basic error handling
@@ -246,13 +251,13 @@ $(document).ready(function() {
 	function substitute(str, obj) {
 		return str.replace((/\\?\{([^{}]+)\}/g), function(match, name){
 			if (match.charAt(0) == '\\') return match.slice(1);
-			return (obj[name] != null) ? obj[name] : '';
+			return (obj[name] != null) ? obj[name] : "";
 		});
 	}
 	
 	// Geolocates the user
 	function geolocate() {
-		if(false) { //"geolocation" in navigator) {
+		if("geolocation" in navigator) {
 			// Attempt to get the user position
 			navigator.geolocation.getCurrentPosition(function(position) {
 				// Set the address position 
@@ -263,13 +268,17 @@ $(document).ready(function() {
 		}
 	}
 	
+	// Focuses on the input box
+	function focusOnLocationBox() {
+		$locationInput[0].focus();
+	}
+	
 	// Modal function
 	function showDialog(title, message) {
 		$("#errorDialog h2.error-title").html(title);
 		$("#errorDialog p.error-message").html(message);
 		$.mobile.changePage("#errorDialog");
 	}
-	
 	
 	// Init the app
 	app.init();
