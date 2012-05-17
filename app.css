@@ -20,8 +20,10 @@
 }
 
 /* Custom CSS classes */
+.clear 				{ clear: both; }
 .hidden				{ display: none; }
 .opaque				{ opacity: 0; }
+
 
 /* Basic styling */
 #prevLocationsContainer { margin-top: 40px; }
@@ -33,17 +35,17 @@
 
 /* Tweet list */
 #tweetsList li {
-	clear: both;
+	
 }
 
 #tweetsList li .tweetImage {
 	float: left;
-	margin: 10px 20px 0 10px;
+	margin: 10px 10px 0 10px;
 }
 
 #tweetsList li .tweetContent {
 	float: left;
-	margin: 10px 0 0 0;
+	/* margin: 10px 0 0 0; */
 }
 
 #tweetsList li .tweetContent strong {
@@ -52,3 +54,6 @@
 }
 
 /* Media Queries for device support */
+@media screen and (max-device-width: 480px) {
+	#prevLocationsContainer { margin-top: 10px; }
+}
