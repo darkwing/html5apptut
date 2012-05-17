@@ -869,13 +869,34 @@ if("geolocation" in navigator) {
 	<p>Mozilla Marketplace users are entitled to refunds within 30 minutes of purchases.  After that 30 minutes, developers can review refund requests on an individual basis.  Read the <a href="https://developer.mozilla.org/en/Apps/Marketplace_Payments/FAQ#Refunds">Marketplace Payments FAQ</a> for more information about payments and refunds.</p>
 	
 	<h3>Profiting from Your HTML5 App</h3>
+	<p>Creating HTML5 Apps is also a great way to turn your passion into revenue!</p>
 	
 	<h4>Mozilla Marketplace</h4>
+	<p>The <a href="https://marketplace.mozilla.org/en-US/">Mozilla Marketplace</a> is an outstanding marketplace for HTML5 app developers.  The Mozilla Marketplace supports both paid and free apps, in-app purchasing, a variety of device platform apps, and more.  The Mozilla Marketplace provides competitive pricing and offers consumers a variety of payment methods.  Read the <a href="https://developer.mozilla.org/en/Apps/Marketplace_Payments">Marketplace Payments FAQ</a> to learn more about monetizing your app on the Mozilla Marketplace.</p>
 	
 	<h4>In-App Payment</h4>
+	<p>In-App payments are another way to monetize your app with the added bonus of enhancing an existing app instead of requiring the user to add purchase an additional app.  Mozilla's In-App payment model works very similar to <a href="https://developers.google.com/in-app-payments/docs/">Google's In-Apps Payments</a> system.  This system flows as follows:</p>
+	
+	<ul>
+		<li>The app initiates a payment by signing a JWT request and calling a JavaScript function</li>
+		<li>This starts the buyflow in a lightbox (served from an iframe)
+			<ul>
+				<li>The buyer logs in with Mozilla Persona (formerly called BrowserID)</li>
+				<li>The buyer completes the purchase</li>
+			</ul>
+		</li>
+		<li>The app receives a JavaScript callback when the buyer closes the window</li>
+		<li>The app server receives a signed POST request with a Mozilla transaction ID indicating that the purchase was completed successfully</li>
+	</ul>
+	
+	<p>The Mozilla Marketplace provides a JavaScript utility library to aid in this process.</p>
+	
+	<p class="callout">The <a href="https://developer.mozilla.org/en/Apps/In-app_payments">In-App Payments FAQ</a> provides a wealth of information on how in-app Payment works and sample code for implementation.  Keep this reference handy as the in-app payment process is currently in an experimental state.</p>
 	
 	<h4>Third Party Payment Providers</h4>
+	<p class="todo">What does this refer to?  PayPal?  Bank processors?  ¿Que?</p>
 	
+	<h2></h2>
 	
 	<script>
 		/* doing this just because it annoys me */

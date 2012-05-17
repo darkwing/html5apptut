@@ -16,6 +16,7 @@ li 		{ line-height: 28px; }
 p 		{ width: 800px; line-height: 28px; margin-bottom: 20px; }
 pre		{ padding: 10px; background: #eee; border:1px dashed #ccc; margin: 10px 200px 30px 0; }
 ul		{ margin-left: 40px; margin-bottom: 20px; }
+	ul ul { margin-bottom: 0; }
 
 /* custom classes */
 .callout { border: 1px solid #ececcd; background: #fffff1; padding: 10px; margin: 10px 200px 20px 0; }
@@ -24,7 +25,6 @@ ul		{ margin-left: 40px; margin-bottom: 20px; }
 .tutBlock { border: 1px solid lightgreen; background: #e1fae1; padding: 10px; }
 	.tutBlock h2 { margin-top: 0; }
 	.tutBlock *:last-child { margin-bottom: 0; }
-	.tutBlock pre { background: #ffeffe; }
 
 /* links */
 a 		{ color: #0553ba; }
