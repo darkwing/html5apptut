@@ -1,5 +1,3 @@
-<!-- https://marketplace.mozilla.org/en-US/app/area-tweet/ -->
-
 <!doctype html>
 <html>
 <head>
@@ -23,23 +21,58 @@
 	
 	<p class="tutBlock">Over the course of the tutorial, we'll be employing these techniques and technologies to create a Twitter-based application meant for desktop, mobile phone, and mobile tablet devices.  Once the app is completed, we'll create the appropriate manifests for placing our app up for download on the <a href="https://marketplace.mozilla.org/">Mozilla Marketplace</a>!</p>
 	
-	<h2>1.  Elements of a HTML5 App</h2>
+	<h2>Elements of a HTML5 App</h2>
 	<p>While the role of HTML, CSS, and JavaScript are obvious to some, let's do a quick recap of how each plays its own important role in a web app.</p>
 	
 	<h4>HTML(5)</h4>
 	<p>HTML will provide the content structure for the web application.  <a href="https://developer.mozilla.org/en/HTML/HTML5">New features to HTML5</a> include new INPUT types, form validation support, media tags like <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> tags, and <a href="https://developer.mozilla.org/en/Sections_and_Outlines_of_an_HTML5_document">more semantic HTML elements</a>.</p>
 	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="http://www.html5rocks.com/en/">HTML5 Rocks!</a></li>
+			<li><a href="http://html5test.com/">HTML5 Test</a></li>
+			<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+			<li><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/">HTML Living Standard</a></li>
+			<li><a href="http://diveintohtml5.info/">Dive Into HTML5</a></li>
+			<li><a href="http://developers.whatwg.org/">Simple HTML5 Guide</a></li>
+		</ul>
+	</div>
+	
+	
 	<h4>CSS</h4>
 	<p>CSS provides the presentation layer, allowing for basic layout of content.  CSS can do more than just format content though;  we can use the power of CSS to <a href="https://developer.mozilla.org/en/CSS/CSS_animations">animate elements</a>, create <a href="https://developer.mozilla.org/en/Using_gradients">precise gradients</a> so as to avoid unnecessary image usage, and create <a href="https://developer.mozilla.org/en/CSS/Media_queries">media queries</a> which will allow us to adjust the presentation to the user's device.</p>
 	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="http://dev.w3.org/csswg/css3-animations/">CSS Animations Specification</a></li>
+			<li><a href="http://www.colorzilla.com/gradient-editor/">CSS Gradient Generator</a></li>
+			<li><a href="http://www.w3.org/TR/css3-mediaqueries/">CSS Media Queries Specification</a></li>
+			<li><a href="http://css-tricks.com/snippets/css/media-queries-for-standard-devices/">Media Queries for Standard Devices</a></li>
+			<li><a href="http://developer.apple.com/library/safari/#documentation/appleapplications/reference/safaricssref/articles/standardcssproperties.html">Mobile Safari Supported CSS Properties</a></li>
+		</ul>
+	</div>
+	
 	<h4>JavaScript</h4>
 	<p>JavaScript provides the level of dynamism and user interaction for the HTML5 app.  JavaScript will allow us to <a href="https://developer.mozilla.org/en/DOM/element.addEventListener">listen for and respond to user interactions</a>, <a href="https://developer.mozilla.org/en/Ajax">load content dynamically</a>, and get access to device-specific features, like the <a href="https://developer.mozilla.org/en/DOM/Using_the_Camera_API">Camera API</a> and <a href="https://developer.mozilla.org/en/Using_geolocation">Geolocation API</a>.</p>
+	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="https://developer.mozilla.org/en/Canvas_tutorial">Canvas Tutorial</a></li>
+			<li><a href="https://developer.mozilla.org/en/DOM/element.classList">Element.classList API</a></li>
+			<li><a href="https://developer.mozilla.org/en/DOM/Storage">DOM Storage API</a></li>
+			<li><a href="http://addyosmani.com/writing-modular-js/">Writing Modular JavaScript With AMD, CommonJS & ES Harmony</a></li>
+			<li><a href="https://developer.mozilla.org/en/DOM/window.navigator.mozBattery">Battery API</a></li>
+			<li><a href="https://developer.mozilla.org/En/DOM/Document.querySelectorAll">document.querySelectorAll API</a></li>
+			<li><a href="https://developer.mozilla.org/en/DOM/Using_the_Page_Visibility_API">Using the Page Visibility API</a></li>
+			<li><a href="https://developer.mozilla.org/en/WebSockets">WebSockets</a></li>
+		</ul>
+	</div>
 	
 	<p class="callout">It's important to note that support for individual features varies from browser to browser; <a href="https://developer.mozilla.org/en/Browser_Feature_Detection">feature detection</a> and research should be done before using each feature (<em>these strategies will be covered in depth below</em>).</p>
 		
 	<p>With the technologies laid out, let’s get started with an introduction to a few popular developer tools that can help increase your efficiency.</p>
 	
-	<h2>1.5 Configuring Your Development Environment</h2>
+	<h2>Configuring Your Development Environment</h2>
 	<p>Before you can dive into creating your web application, you'll need to make sure you have the tools required.</p>
 	
 	<h4>Text Editors</h4>
@@ -73,7 +106,18 @@
 	
 	<p>Additional resources can be added to your development environment as needed, but a text editor, browser, and developer tools will get you well on your way to creating a great HTML5 app!</p>
 	
-	<h2>2.0 Designing Your App</h2>
+	<div class="infoBlock">
+		<ul>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/firebug/">Firebug</a></li>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/web-developer/">Web Developer Toolbar</a></li>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/firepicker/"></a>Firepicker</li>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/firecookie/">Firecookie</a></li>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/user-agent-switcher/">User Agent Switcher</a></li>
+			<li><a href="https://addons.mozilla.org/en-US/firefox/addon/colorzilla/">ColorZilla</a></li>
+		</ul>
+	</div>
+	
+	<h2>Designing Your App</h2>
 	<p>
 		There are many considerations to ponder before designing your HTML5 app.
 	</p>
@@ -120,19 +164,44 @@
 	</div>
 	
 	
-	<h2>3. Coding Your App</h2>
+	<h2>Coding Your App</h2>
 	<p>Outside the different colors and imagery that apps use, an app's design isn't necessarily dynamic:  the principles of designing a flexible app are largely the same.  The style and tools with which a developer uses to code their application is a completely different story;  numerous libraries and frameworks are available for coding mobile application.</p>
 	
 	<h3>JavaScript Libraries</h3>
 	
 	<h4>jQuery Mobile</h4>
-	<p><a href="http://jquery.com">jQuery's</a> official mobile framework, <a href="http://jquerymobile.com/">jQuery Mobile</a>.  jQuery mobile provides a unified, HTML5-based user interface system for all popular mobile device platforms.  jQuery Mobile also provides a theme builder for application design as well as development.</p>
+	<p><a href="http://jquery.com">jQuery's</a> official mobile framework, <a href="http://jquerymobile.com/">jQuery Mobile</a>.  jQuery mobile provides a unified, HTML5-based user interface system for all popular mobile device platforms.  jQuery Mobile also provides a <a href="http://jquerymobile.com/themeroller/">theme builder</a> for application design as well as development.</p>
+	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="http://jquerymobile.com/blog/">jQuery Mobile Blog</a></li>
+			<li><a href="http://jquerymobile.com/demos/1.1.0/">jQuery Mobile API</a></li>
+			<li><a href="http://api.jquery.com">jQuery API</a></li>
+		</ul>
+	</div>
 	
 	<h4>Dojo Mobile</h4>
-	<p><a href="http://dojotoolkit.org/features/mobile">Dojo Mobile</a> is the <a href="http://dojotoolkit.org">Dojo Toolkit's</a> outstanding JavaScript framework, boasting a series of flexible views and widgets, automatic device detection and theme, and more.  The <a href="http://demos.dojotoolkit.org/demos/demos.php?cat=mobile">Dojo Mobile Showcase</a> shows advanced Dojo Mobile usage in action.</p>
+	<p><a href="http://dojotoolkit.org/features/mobile">Dojo Mobile</a> is the <a href="http://dojotoolkit.org">Dojo Toolkit's</a> mobile framework, boasting a series of flexible views and widgets, automatic device detection and theme, and more.  The <a href="http://demos.dojotoolkit.org/demos/demos.php?cat=mobile">Dojo Mobile Showcase</a> shows advanced Dojo Mobile usage in action.</p>
+	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="http://dojotoolkit.org/documentation/tutorials/1.7/mobile/tweetview/getting_started/">Getting Started with dojox/mobile</a></li>
+			<li><a href="http://livedocs.dojotoolkit.org/dojox/mobile">Dojo Mobile Documentation</a></li>
+			<li><a href="https://www.ibm.com/developerworks/mydeveloperworks/blogs/ykami/entry/dojox_mobile_pane_dojox_mobile_container_and_dojox_mobile_contentpane9">Dojo Mobile 1.8 Work-In-Progress</a></li>
+			<li><a href="http://dojotoolkit.org/api/">Dojo Toolkit API</a></li>
+		</ul>
+	</div>
 	
 	<h4>MooTools Moobile</h4>
 	<p>The unofficial mobile framework of <a href="http://mootools.net">MooTools</a> is called <a href="http://moobilejs.com/">Moobile</a>.  Moobile provides a mobile application boilerplate, as well as a host of simple mobile widgets.</p>
+	
+	<div class="infoBlock">
+		<ul>
+			<li><a href="https://github.com/cpojer/mootools-mobile">MooTools Mobile</a></li>
+			<li><a href="http://mootools.net/docs/core">MooTools Documentation</a></li>
+			<li><a href="http://mootools.net/forge/">MooTools Forge</a></li>
+		</ul>
+	</div>
 	
 	<p>Numerous other mobile Javascript frameworks are available to aid the development of mobile web applications.  When looking for a good mobile web app JavaScript framework, look for multi-device support, touch and gesture event support, and a unified API with its host framework.</p>
 	
@@ -326,7 +395,7 @@ false);
 	<p class="callout">It's best to use absolute paths within the manifest, even for images.  The Mozilla Marketplace will not currently accept manifests with relative paths.</p>
 	
 	<h3>AppCache Manifests</h3>
-	<p class="todo">Haven't found the documentation for this...</p>
+	<p class="todo">Haven't found the documentation for this...  https://developer.mozilla.org/en/Using_Application_Cache</p>
 	
 	
 	<div class="tutBlock">
@@ -803,7 +872,7 @@ $(document).ready(function() {
 	
 	
 	
-	<h2>4. App Testing</h2>
+	<h2>App Testing</h2>
 	<p>App testing is of immense importance, especially when supporting multiple platforms and devices.  The amount of tests and types of testing needed depend on the devices and platforms supported.  Test types include:</p>
 	
 	<ul>
@@ -847,7 +916,7 @@ if("geolocation" in navigator) {
 	<p>Performance testing can be difficult to prescribe since it's wholly dependent upon the tasks performed by the app.  Basic web coding principles like minimizing HTTP requests (JavaScript concatenation or CSS sprites help), JS and CSS minification, placing scripts at the bottom of the page, and properly setting Expires headers all apply.  The YSlow team provides more <a href="http://yslow.org/">helpful web performance best practices</a> to follow, all of which will enhance your HTML5 app.  The HTML5Rocks website also provides a list of <a href="http://www.html5rocks.com/en/features/performance">performance best practices</a>.</p>
 	
 	
-	<h2>5.  Publishing Your App</h2>
+	<h2>Publishing Your App</h2>
 	
 	<h3>Deployment</h3>
 	<p>Once you’ve finished your app, host it on a publicly accessible web server like any other website. There are numerous ways to deploy your app.</p>
@@ -920,14 +989,43 @@ if("geolocation" in navigator) {
 	<h2>Create Your HTML5 App!</h2>
 	<p>Using open web technologies to create rich, powerful applications for numerous devices is a fun, rewarding, and potentially profitably process.  The open web provides the tools needed to make app creation possible, while Mozilla provides an excellent marketplace for showcasing and distributing your app.  Use the information provided within this document to create your incredible app and share it with the world!</p>
 	
+	<p class="callout">You can see a live demonstration of the app we created in this tutorial by visiting <a href="http://areatweet.com">AreaTweet.com</a>  Want to install it on your desktop or mobile device?  You can <a href="https://marketplace.mozilla.org/en-US/app/area-tweet/">download it for free</a> in the Mozilla Marketplace!</p>
 	
 	
 	<script>
-		/* doing this just because it annoys me */
-		var pres = document.querySelectorAll("pre");
-		for(var x = 0; x < pres.length; x++) {
-			pres[x].innerHTML = pres[x].innerHTML.trim();
-		}
+		(function() {
+			/* doing this just because the extra whitespace in code blocks annoys me */
+			var pres = document.querySelectorAll("pre");
+			for(var x = 0; x < pres.length; x++) {
+				pres[x].innerHTML = pres[x].innerHTML.trim();
+			}
+			
+			/* open/close "links" blocks */
+			var infoBlocks = document.querySelectorAll(".infoBlock");
+			for(var y = 0; y < infoBlocks.length; y++) {
+				// Inject arrow
+				var arrow = document.createElement("div");
+				arrow.className = "arrow";
+				infoBlocks[y].appendChild(arrow);
+				
+				// Inject "more"
+				var more = document.createElement("div");
+				more.className = "more";
+				more.innerHTML = "more resources..."
+				infoBlocks[y].appendChild(more);
+				
+				
+				// Add event listener for open / close
+				(function(y) {
+					infoBlocks[y].addEventListener("click", function() {
+						infoBlocks[y].classList.toggle("show");
+					});
+				})(y);
+				
+				// DEBUG -- JUST SHOW FOR NOW
+				infoBlocks[y].classList.add("show");
+			}
+		})();
 	</script>
 	</article></body>
 </html>

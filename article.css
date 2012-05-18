@@ -7,8 +7,8 @@ body	{ padding: 20px; font-family: Georgia, Times, serif; color: #444; backgroun
 article	{ border-left: 1px solid #eee; padding: 20px 0 20px 30px; }
 code	{ font-family: monospace, sans-serif; background: #ededed; font-weight:bold; border-radius: 3px; padding: 3px 6px; }
 h1		{ font-size: 40px; margin: 0 0 20px 0; color: #000; font-weight: normal; }
-h2		{ font-size: 30px; margin: 30px 0 10px 0; color: #000; font-weight: normal; }
-h3		{ font-size: 22px; margin: 20px 0 10px 0; color: #000; }
+h2		{ font-size: 34px; margin: 30px 0 10px 0; color: #000; font-weight: normal; background: url(images/mozilla-64.png) 0 0 no-repeat; padding: 12px 0 8px 80px; }
+h3		{ font-size: 22px; margin: 20px 0 10px 0; color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; width: 800px; }
 h4		{ font-size: 16px; color: #000; }
 h5		{ font-size: 15px; color: #900; }
 
@@ -25,6 +25,30 @@ ul		{ margin-left: 40px; margin-bottom: 20px; }
 .tutBlock { border: 1px solid lightgreen; background: #e1fae1; padding: 10px; }
 	.tutBlock h2 { margin-top: 0; }
 	.tutBlock *:last-child { margin-bottom: 0; }
+	
+.infoBlock	{ border: 1px solid lightblue; background: #e8eefa; height: 0; padding: 10px 0; overflow: hidden; margin-bottom: 30px; cursor: pointer; position: relative; width: 400px; }
+	.infoBlock.show { height: auto; }
+	.infoBlock .arrow  {
+		width: 0; 
+		height: 0; 
+		border-left: 5px solid transparent;  /* left arrow slant */
+		border-right: 5px solid transparent; /* right arrow slant */
+		border-bottom: 5px solid lightblue; /* bottom, add background color here */
+		font-size: 0;
+		line-height: 0;
+		top: 7px;
+		right: 7px;
+		position: absolute;
+	}
+	.infoBlock.show .arrow {
+		border-bottom: 0;
+		border-top: 5px solid lightblue;
+	}
+	.infoBlock ul { margin-bottom: 0; opacity: 0; }
+	.infoBlock.show ul { opacity: 1; }
+	.infoBlock .more { position: absolute; top: 0px; right: 26px; color: lightblue; font-variant: small-caps; font-size: 13px; font-family: tahoma; letter-spacing: 1px; }
+	.infoBlock.show .more { opacity: 0; }
+	
 
 /* links */
 a 		{ color: #0553ba; }
