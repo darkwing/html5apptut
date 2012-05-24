@@ -352,13 +352,13 @@ window.addEventListener("resize", function() {
 	var orientation = window.innerWidth > window.innerHeight ? "landscape" : "portrait";
 	
 	// Execute more code accordingly...
-	
-false);
+}, false);
+
 </pre>
 
 	<h3>Web App Bootstraps</h3>
 	<p>
-		Server side processing of information happens on the app host's servers, so any server side technology may be used.  Popular server side languages include PHP, Python, and <a href="http://nodejs.org/">NodeJS</a> + <a href="http://expressjs.com/">express</a>.  There's a likelihood that your application will want to implement BrowserId for app sign in;  you can find a the code required to implement BrowserID on <a href="https://github.com/mozilla/browserid">GitHub</a>.
+		Server side processing of information happens on the app host's servers, so any server side technology may be used.  Popular server side languages include PHP, Python, and <a href="http://nodejs.org/">NodeJS</a> + <a href="http://expressjs.com/">express</a>.  There's a likelihood that your application will want to implement BrowserId for app sign in;  you can find the code required to implement BrowserID on <a href="https://developer.mozilla.org/en/BrowserID">MDN</a>.
 	</p>
 		
 	<h3>App Manifests</h3>
@@ -388,7 +388,7 @@ false);
 }
 </pre>
 
-	<p>The application manifest lives on the host server, <em>not the Mozilla Marketplace</em>  It's recommended that your manifest best served via HTTPS.</p>
+	<p>The application manifest lives on the host server, <em>not the Mozilla Marketplace</em>. It's recommended that your manifest is saved with a .webapp extension and served with a <code>Content-Type</code> http header of <code>application/x-web-app-manifest+json</code> via HTTPS.</p>
 	
 	<p class="callout">A complete listing of all manifest properties can be <a href="https://developer.mozilla.org/en/Apps/Manifest">found here</a>.  There's also a <a href="https://developer.mozilla.org/en/Apps/FAQs/About_app_manifests">Frequently Asked Questions</a> document which provides tips for creating your manifest and explanations for why the manifest hosting process is the way it is.</p>
 	
