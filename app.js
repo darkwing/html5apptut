@@ -208,6 +208,15 @@ $(document).ready(function() {
 		
 		return false;
 	}
+
+	// Google GeoCode reception
+	window.geocodeCallback = function(json) {
+		// Make the JSONP call to Twitter
+		console.log(json.query);
+		if(json.query.count) {
+			$locationInput.val(json.query.results.json[0].results.address_components[3].long_name);
+		}
+	};
 	
 	// Twitter reception
 	window.twitterCallback = function(json) {
@@ -261,8 +270,19 @@ $(document).ready(function() {
 			// Attempt to get the user position
 			navigator.geolocation.getCurrentPosition(function(position) {
 				// Set the address position 
-				if(position.address && position.address.city) {
-					$locationInput.val(position.address.city);
+				if(position.coords.latitude != undefined && position.coords.longitude != undefined) {
+
+					var query = encodeURIComponent("SELECT results FROM json WHERE url='maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&sensor=true'"),
+						url = "http://query.yahooapis.com/v1/public/yql?q=" + query + "&format=json&callback=geocodeCallback";
+
+					// Make the JSONP call to Twitter
+					lastRequest = $.ajax(url, {
+						cache: false,
+						crossDomain: true,
+						dataType: "jsonp",
+						callback: "geocodeCallback",
+						timeout: 3000
+					});
 				}
 			});
 		}
